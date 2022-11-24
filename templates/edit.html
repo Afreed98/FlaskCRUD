@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %} Edit Data {% endblock %}
+{% block header %} Edit Data {% endblock %}
+{% block body %}
+<a href="{{ url_for('index') }}" class="btn btn-primary" style="margin-bottom: 1.2rem;">Home</a>
+<div class="card-body">
+    <form action="{{ url_for('process_edit') }}" method="POST">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">N</div>
+                </div>
+                <input type="hidden" name="id" value="{{ data.id }}">
+                <input required class="form-control" type="text" id="name" placeholder="Input Name" name="name"  value="{{ data.name }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="designation">Designation:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">D</div>
+                </div>
+                <input required class="form-control" type="text" id="designation" placeholder="Input Designation"
+                    name="designation" value="{{ data.designation }}"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text" style="height:100% ">A</div>
+                </div>
+                <textarea required class="form-control" id="address" placeholder="Input Address" name="address">{{ data.address }} </textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <div class="input-group-text">P</div>
+                </div>
+                <input class="form-control" type="text" id="phone" placeholder="Input Phone Number" name="phone" value="{{ data.phone }}" required />
+            </div>
+        </div>
+        <div class="form-group" style="margin-top: 1.2rem;">
+            <button type="submit" class="btn btn-success btn-sm" name="submit">Update</button>
+            <button type="reset" class="btn btn-danger btn-sm" name="reset">Cancel</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
